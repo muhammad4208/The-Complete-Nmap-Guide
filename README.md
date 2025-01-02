@@ -48,59 +48,59 @@ A comprehensive resource covering everything about Nmap—from basic commands to
 
 ## **Firewall Evasion Techniques**  
 
-## **Timing and Throttling**  
+### **Timing and Throttling**  
 - **Adjust Scan Timing**: Avoid detection by setting slower scan timing.  
   - Example: `nmap -T2 -Pn 192.168.1.1`  
 
-## **Packet Fragmentation**  
+### **Packet Fragmentation**  
 - **Split Probes into Fragments**: Evade firewalls by fragmenting packets.  
   - Example: `nmap -f 192.168.1.1`  
 
-## **Custom MTU Size**  
+### **Custom MTU Size**  
 - **Set a Custom MTU**: Fragment packets to a specific size.  
   - Example: `nmap --mtu 16 192.168.1.1`  
 
-## **Randomized Host Order**  
+### **Randomized Host Order**  
 - **Shuffle Target Order**: Randomize scan target order to evade detection.  
   - Example: `nmap --randomize-hosts -iL targets.txt`  
 
-## **Decoys**  
+### **Decoys**  
 - **Use Spoofed IPs**: Obfuscate the real scanner by generating decoy traffic.  
   - Example: `nmap -D RND:10,ME 192.168.1.1`  
 
-## **Spoofed Source IP**  
+### **Spoofed Source IP**  
 - **Mask Your IP**: Use a fake source IP for scans.  
   - Example: `nmap -S 1.2.3.4 192.168.1.1`  
 
-## **MAC Address Spoofing**  
+### **MAC Address Spoofing**  
 - **Impersonate a MAC Address**: Change your MAC address to mimic another device.  
   - Example: `nmap --spoof-mac 00:11:22:33:44:55 192.168.1.1`  
 
-## **Source Port Spoofing**  
+### **Source Port Spoofing**  
 - **Mimic Legitimate Traffic**: Use common service ports to disguise the scan.  
   - Example: `nmap --source-port 53 192.168.1.1`  
 
-## **Custom TTL**  
+### **Custom TTL**  
 - **Manipulate Packet TTL**: Bypass firewalls by adjusting the TTL.  
   - Example: `nmap --ttl 128 192.168.1.1`  
 
-## **Proxy Chains**  
+### **Proxy Chains**  
 - **Route Through Proxies**: Scan via multiple proxies for anonymity.  
   - Example: `nmap --proxies proxylist.txt 192.168.1.1`  
 
-## **Uncommon Protocols**  
+### **Uncommon Protocols**  
 - **Use Alternate Protocols**: Switch to ICMP, SCTP, or other non-TCP/UDP protocols.  
   - Example: `nmap -PE 192.168.1.1`  
 
-## **Random Payloads**  
+### **Random Payloads**  
 - **Confuse IDS**: Add arbitrary data to packets.  
   - Example: `nmap --data-length 50 192.168.1.1`  
 
-## **DNS Enumeration**  
+### **DNS Enumeration**  
 - **List Targets via DNS**: Perform DNS lookups instead of direct scanning.  
   - Example: `nmap -sL 192.168.1.1/24`  
 
-## **Combined Techniques**  
+### **Combined Techniques**  
 - **Blend Tactics**: Combine evasion methods for advanced scans.  
   - Example: `nmap -f -T2 -D RND:5 --spoof-mac 0 --source-port 443 192.168.1.1`  
 

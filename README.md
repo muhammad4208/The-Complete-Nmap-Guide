@@ -112,68 +112,68 @@ A comprehensive resource covering everything about Nmap from basic commands to a
   - `nmap --script=mysql-brute --script-args userdb=users.txt,passdb=passwords.txt [target]`
 
 - **http-grep**:  
-- `nmap -p 80 --script=http-grep --script-args http-grep.url=<subpage>`  
+  - `nmap -p 80 --script=http-grep --script-args http-grep.url=<subpage>`  
 
 - **http-config-backup**:  
-- `nmap -p 80 --script=http-config-backup`  
+  - `nmap -p 80 --script=http-config-backup`  
 
 - **smb-enum-users**:  
-- `nmap --script=smb-enum-users [target]`  
+  - `nmap --script=smb-enum-users [target]`  
 
 - **http-wordpress-enum**:  
-- `nmap -p 80 --script=http-wordpress-enum [target]`  
+  - `nmap -p 80 --script=http-wordpress-enum [target]`  
 
 - **firewalk**:  
-- `nmap --script=firewalk [target]`  
+  - `nmap --script=firewalk [target]`  
 
 - **mysql-empty-password**:  
-- `nmap -p 3306 --script=mysql-empty-password [target]`  
+  - `nmap -p 3306 --script=mysql-empty-password [target]`  
 
 - **mysql-users**:  
-- `nmap -p 3306 --script=mysql-users --script-args mysqluser=root,mysqlpass= [target]`
+  - `nmap -p 3306 --script=mysql-users --script-args mysqluser=root,mysqlpass= [target]`
 - 
 - **mysql-brute**:  
-- `nmap -p 3306 --script=mysql-brute --script-args userdb=users.lst,passdb=pass.lst [target]`  
+  - `nmap -p 3306 --script=mysql-brute --script-args userdb=users.lst,passdb=pass.lst [target]`  
 
 - **smb-os-discovery**:  
-- `nmap --script=smb-os-discovery.nse [target]`  
-- `nmap -p 445 --script=smb-os-discovery [target]`  
+  - `nmap --script=smb-os-discovery.nse [target]`  
+  - `nmap -p 445 --script=smb-os-discovery [target]`  
 
 - **dns-zone-transfer**:  
-- `nmap --script=dns-zone-transfer.nse --script-args dns-zone-transfer.domain=[domain] [target]`  
+  - `nmap --script=dns-zone-transfer.nse --script-args dns-zone-transfer.domain=[domain] [target]`  
 
 - **ftp-anon**:  
-- `nmap --script=ftp-anon [target]`  
+  - `nmap --script=ftp-anon [target]`  
 
 - **smtp-enum-users**:  
-- `nmap --script=smtp-enum-users --script-args smtp.domain=[domain] [target]`  
+  - `nmap --script=smtp-enum-users --script-args smtp.domain=[domain] [target]`  
 
 - **vulners**:  
-- `nmap --script=vulners --script-args mincvss=[value] [target]`  
+  - `nmap --script=vulners --script-args mincvss=[value] [target]`  
 
 - **snmp-brute**:  
-- `nmap --script=snmp-brute [target]`  
+  - `nmap --script=snmp-brute [target]`  
 
 - **http-vuln-**:  
-- `nmap --script=http-vuln-* [target]`  
+  - `nmap --script=http-vuln-* [target]`  
 
 - **smb-enum-shares**:  
-- `nmap --script=smb-enum-shares [target]`  
+  - `nmap --script=smb-enum-shares [target]`  
 
 - **http-title**:  
-- `nmap -p 80,443 --script=http-title [target-ip-or-domain]`  
+  - `nmap -p 80,443 --script=http-title [target-ip-or-domain]`  
 
 - **ssl-cert**:  
-- `nmap -p 443 --script=ssl-cert [target-ip-or-domain]`  
+  - `nmap -p 443 --script=ssl-cert [target-ip-or-domain]`  
 
 - **vuln**:  
-- `nmap -p 80,443 --script=vuln [target-ip-or-domain]`  
+  - `nmap -p 80,443 --script=vuln [target-ip-or-domain]`  
 
 - **http-robots.txt**:  
-- `nmap -p 80,443 --script=http-robots.txt [target-ip-or-domain]`  
+  - `nmap -p 80,443 --script=http-robots.txt [target-ip-or-domain]`  
 
 - **ssh-hostkey**:  
-- `nmap -p 22 --script=ssh-hostkey [target-ip-or-domain]`  
+  - `nmap -p 22 --script=ssh-hostkey [target-ip-or-domain]`  
  
 
 ## **Learn More**  

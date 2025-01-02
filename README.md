@@ -45,3 +45,10 @@ A comprehensive resource covering everything about Nmap—from basic commands to
 ## **Timing and Performance**
 - **Speed Profiles**: `nmap -T<0-5> <target>` - Adjusts scan speed (e.g., `nmap -T4 192.168.1.1`).
 - **Rate Limit**: `nmap --max-rate <rate> <target>` - Limits probes per second (e.g., `nmap --max-rate 100 192.168.1.1`).
+
+  ## Learn More  
+To deepen your understanding of Nmap, explore the following resources:  
+- [Official Nmap Documentation](https://nmap.org/docs.html)  
+- [Nmap Network Scanning Book](https://nmap.org/book/)  
+- [SecTools Nmap Tutorials](https://sectools.org/tag/nmap/)  
+- [Nmap Cheat Sheet](https://github.com/trimstray/the-book-of-secret-knowledge) 

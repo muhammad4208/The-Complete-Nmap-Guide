@@ -1,5 +1,5 @@
 # The Complete Nmap Guide
-A comprehensive resource covering everything about Nmap—from basic commands to advanced scanning techniques. Perfect for beginners and professionals seeking to master network exploration and security auditing with Nmap.
+A comprehensive resource covering everything about Nmap from basic commands to advanced scanning techniques. Perfect for beginners and professionals seeking to master network exploration and security auditing with Nmap.
 
 ## **Target Specification**
 - **Single IP Scan**: `nmap <target>` - Scans a single IP (e.g., `nmap 192.168.1.1`).
@@ -47,62 +47,134 @@ A comprehensive resource covering everything about Nmap—from basic commands to
 - **Rate Limit**: `nmap --max-rate <rate> <target>` - Limits probes per second (e.g., `nmap --max-rate 100 192.168.1.1`).
 
 ## **Firewall Evasion Techniques**  
-
-### **Timing and Throttling**  
-- **Adjust Scan Timing**: Avoid detection by setting slower scan timing.  
+- **Timing and Throttling**: Adjust scan timing to avoid detection.  
   - Example: `nmap -T2 -Pn 192.168.1.1`  
 
-### **Packet Fragmentation**  
-- **Split Probes into Fragments**: Evade firewalls by fragmenting packets.  
+- **Packet Fragmentation**: Split probes into fragments to evade firewalls.  
   - Example: `nmap -f 192.168.1.1`  
 
-### **Custom MTU Size**  
-- **Set a Custom MTU**: Fragment packets to a specific size.  
+- **Custom MTU Size**: Set a custom MTU for packet fragmentation.  
   - Example: `nmap --mtu 16 192.168.1.1`  
 
-### **Randomized Host Order**  
-- **Shuffle Target Order**: Randomize scan target order to evade detection.  
+- **Randomized Host Order**: Randomize the order of targets to evade detection.  
   - Example: `nmap --randomize-hosts -iL targets.txt`  
 
-### **Decoys**  
-- **Use Spoofed IPs**: Obfuscate the real scanner by generating decoy traffic.  
+- **Decoys**: Use spoofed IPs to obfuscate the real scanner.  
   - Example: `nmap -D RND:10,ME 192.168.1.1`  
 
-### **Spoofed Source IP**  
-- **Mask Your IP**: Use a fake source IP for scans.  
+- **Spoofed Source IP**: Mask the scan source IP.  
   - Example: `nmap -S 1.2.3.4 192.168.1.1`  
 
-### **MAC Address Spoofing**  
-- **Impersonate a MAC Address**: Change your MAC address to mimic another device.  
+- **MAC Address Spoofing**: Impersonate a MAC address.  
   - Example: `nmap --spoof-mac 00:11:22:33:44:55 192.168.1.1`  
 
-### **Source Port Spoofing**  
-- **Mimic Legitimate Traffic**: Use common service ports to disguise the scan.  
+- **Source Port Spoofing**: Mimic legitimate traffic using common service ports.  
   - Example: `nmap --source-port 53 192.168.1.1`  
 
-### **Custom TTL**  
-- **Manipulate Packet TTL**: Bypass firewalls by adjusting the TTL.  
+- **Custom TTL**: Manipulate TTL to bypass firewall rules.  
   - Example: `nmap --ttl 128 192.168.1.1`  
 
-### **Proxy Chains**  
-- **Route Through Proxies**: Scan via multiple proxies for anonymity.  
+- **Proxy Chains**: Route scans through proxies for anonymity.  
   - Example: `nmap --proxies proxylist.txt 192.168.1.1`  
 
-### **Uncommon Protocols**  
-- **Use Alternate Protocols**: Switch to ICMP, SCTP, or other non-TCP/UDP protocols.  
+- **Uncommon Protocols**: Use ICMP, SCTP, or other non-TCP/UDP protocols.  
   - Example: `nmap -PE 192.168.1.1`  
 
-### **Random Payloads**  
-- **Confuse IDS**: Add arbitrary data to packets.  
+- **Random Payloads**: Add arbitrary data to confuse IDS.  
   - Example: `nmap --data-length 50 192.168.1.1`  
 
-### **DNS Enumeration**  
-- **List Targets via DNS**: Perform DNS lookups instead of direct scanning.  
+- **DNS Enumeration**: Perform DNS lookups instead of direct scans.  
   - Example: `nmap -sL 192.168.1.1/24`  
 
-### **Combined Techniques**  
-- **Blend Tactics**: Combine evasion methods for advanced scans.  
+- **Combined Techniques**: Blend multiple evasion tactics for advanced scans.  
   - Example: `nmap -f -T2 -D RND:5 --spoof-mac 0 --source-port 443 192.168.1.1`  
+
+## **Nmap Scripting Engine**  
+- **dns-brute**:  
+  - `nmap -p 80 --script=dns-brute [target]`  
+  - `nmap --script=dns-brute --script-args dns-brute.domain=[domain] [target]`  
+
+- **http-enum**:  
+  - `nmap --script=http-enum [target]`  
+  - `nmap --script=http-enum testhtml5.vulnweb.com`  
+  - `nmap -sV --script=http-enum`  
+
+- **ssh-brute**:  
+  - `nmap -p 22 --script=ssh-brute [target]`  
+  - `nmap -p 22 --script=ssh-brute --script-args userdb=users.txt,passdb=passwords.txt [target]`  
+
+- **smb-enum-shares**:  
+  - `nmap -p 445 --script=smb-enum-shares [target]`  
+  - `nmap --script=smb-enum-shares --script-args smbuser=guest,smbpass=guest [target]`  
+
+- **mysql-brute**:  
+  - `nmap -p 3306 --script=mysql-brute [target]`  
+  - `nmap --script=mysql-brute --script-args userdb=users.txt,passdb=passwords.txt [target]`
+
+- **http-grep**:  
+- `nmap -p 80 --script=http-grep --script-args http-grep.url=<subpage>`  
+
+- **http-config-backup**:  
+- `nmap -p 80 --script=http-config-backup`  
+
+- **smb-enum-users**:  
+- `nmap --script=smb-enum-users [target]`  
+
+- **http-wordpress-enum**:  
+- `nmap -p 80 --script=http-wordpress-enum [target]`  
+
+- **firewalk**:  
+- `nmap --script=firewalk [target]`  
+
+- **mysql-empty-password**:  
+- `nmap -p 3306 --script=mysql-empty-password [target]`  
+
+- **mysql-users**:  
+- `nmap -p 3306 --script=mysql-users --script-args mysqluser=root,mysqlpass= [target]`
+- 
+- **mysql-brute**:  
+- `nmap -p 3306 --script=mysql-brute --script-args userdb=users.lst,passdb=pass.lst [target]`  
+
+- **smb-os-discovery**:  
+- `nmap --script=smb-os-discovery.nse [target]`  
+- `nmap -p 445 --script=smb-os-discovery [target]`  
+
+- **dns-zone-transfer**:  
+- `nmap --script=dns-zone-transfer.nse --script-args dns-zone-transfer.domain=[domain] [target]`  
+
+- **ftp-anon**:  
+- `nmap --script=ftp-anon [target]`  
+
+- **smtp-enum-users**:  
+- `nmap --script=smtp-enum-users --script-args smtp.domain=[domain] [target]`  
+
+- **vulners**:  
+- `nmap --script=vulners --script-args mincvss=[value] [target]`  
+
+- **snmp-brute**:  
+- `nmap --script=snmp-brute [target]`  
+
+- **http-vuln-**:  
+- `nmap --script=http-vuln-* [target]`  
+
+- **smb-enum-shares**:  
+- `nmap --script=smb-enum-shares [target]`  
+
+- **http-title**:  
+- `nmap -p 80,443 --script=http-title [target-ip-or-domain]`  
+
+- **ssl-cert**:  
+- `nmap -p 443 --script=ssl-cert [target-ip-or-domain]`  
+
+- **vuln**:  
+- `nmap -p 80,443 --script=vuln [target-ip-or-domain]`  
+
+- **http-robots.txt**:  
+- `nmap -p 80,443 --script=http-robots.txt [target-ip-or-domain]`  
+
+- **ssh-hostkey**:  
+- `nmap -p 22 --script=ssh-hostkey [target-ip-or-domain]`  
+ 
 
 ## **Learn More**  
 To deepen your understanding of Nmap, explore the following resources:  
